@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dernières Actualités{% endblock %}
+
+{% block body %}
+    <h1 class="my-4">Dernières Actualités</h1>
+    <div class="row">
+        {% for article in articles %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ article.url }}" target="_blank" class="text-decoration-none">
+                                {{ article.title }}
+                            </a>
+                        </h5>
+                        <p class="card-text">{{ article.description }}</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Publié le {{ article.published }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
